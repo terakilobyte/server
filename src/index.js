@@ -9,10 +9,13 @@ app.use("/api/todos", todos)
 
 const port = process.env.PORT || 8000
 
-MongoClient.connect(`${process.env.MONGODB_URI}`, {
-  promiseLibrary: Promise,
-  useNewUrlParser: true,
-})
+MongoClient.connect(
+  `${process.env.MONGODB_URI}`,
+  {
+    promiseLibrary: Promise,
+    useNewUrlParser: true,
+  },
+)
   .catch(err => {
     console.error(err.stack)
     process.exit(1)
